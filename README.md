@@ -27,8 +27,17 @@ It has been only tested on a Raspberry Pi Model B running [Raspbian](https://www
 * [Raspberry Pi](https://www.raspberrypi.org/products/model-b/)
 * [Raspberry Camera Module](https://www.raspberrypi.org/products/camera-module/)
 * [Adafruit Ultimate GPS Breakout](http://www.adafruit.com/product/746)
-* 3 LEDs (+ resistors)
-* 3 Switchs (Normally Open)
+* [GPS Antenna - External Active Antenna](http://www.adafruit.com/products/960) (Optional)
+* 3 LEDs (I use the following colors, you may change to whatever you like)
+  * Blue -> GPS Fix status
+  * Green -> Sispro operating mode
+  * Red -> Script running / Shutting Down / Rebooting 
+* 3 Resistors
+* 2 Momentary Pushbuttons (Normally Open)
+  * Shutdown
+  * Reboot
+* 1 Switch
+  * Alternate operating mode
 
 ## Schematics
 
