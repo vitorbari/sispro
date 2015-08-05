@@ -68,6 +68,7 @@ Assuming you have Raspbian installed and internet connection:
  $ sudo apt-get install python-picamera python3-picamera python-rpi.gpio gpsd gpsd-clients python-gps python-smbus
  ```
 3. GPS Setup
+  
   Edit /boot/cmdline.txt - When the Pi is booting all the debug messages are sent to the serial port. This can be useful for some purposes but we need to turn this off to free the port for our own use.
    ```bash
    $ sudo nano /boot/cmdline.txt
