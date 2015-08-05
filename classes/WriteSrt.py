@@ -14,7 +14,6 @@ import threading
 import time
 
 from classes.UpdateGps import gps_data
-from classes.UpdateGyro import gyro_data
 from classes.RecordVideo import srt
 
 # ==================================
@@ -33,7 +32,6 @@ class WriteSrt(threading.Thread):
     def run(self):
         global file_srt
         global gps_data
-        global gyro_data
         global srt
 
         duration_sec = 0.2
@@ -73,13 +71,9 @@ class WriteSrt(threading.Thread):
                 print(video_tempo, file=file_srt)  # Time
 
                 if gps_data["status"] > 1:
-                    print("%0.7f %0.7f\n%0.2fKm/h Alt:%0.2fm\nx:%0.2f y:%0.2f z:%0.2f\n" % (
-                    gps_data["lat"], gps_data["long"], gps_data["speed"], gps_data["alt"], gyro_data["x"],
-                    gyro_data["y"], gyro_data["z"]), file=file_srt)
+                    print("%0.7f %0.7f\n%0.2fKm/h Alt:%0.2fm" % (gps_data["lat"], gps_data["long"], gps_data["speed"], gps_data["alt"]), file=file_srt)
                 else:
-                    print(
-                        "(GPS NO-FIX)\nx:%0.2f y:%0.2f z:%0.2f\n" % (gyro_data["x"], gyro_data["y"], gyro_data["z"]),
-                        file=file_srt)
+                    print("(GPS NO-FIX)", file=file_srt)
 
                 srt_i += 1
 

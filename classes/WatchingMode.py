@@ -12,8 +12,6 @@ import threading
 import time
 import os
 
-from classes.GyroCube import Simulation
-
 
 class WatchingMode(threading.Thread):
     def __init__(self, out_path):
@@ -48,9 +46,6 @@ class WatchingMode(threading.Thread):
 
                 if file.endswith(".h264"):
                     os.system("omxplayer " + self.out_path + file)
-
-                if file.endswith(".gyro"):
-                    Simulation().run(self.out_path + file)
 
             time.sleep(5)
 

@@ -24,7 +24,6 @@ from classes.WatchingMode import WatchingMode
 # ==================================
 from classes.WriteLog import file_log
 from classes.WriteSrt import file_srt
-from classes.UpdateGyro import file_gyro
 
 
 def set_mode_interrupt(channel):
@@ -115,9 +114,6 @@ except:
 
     if file_srt:
         file_srt.close()
-
-    if file_gyro:
-        file_gyro.close()
 
     ThreadBlinkLed.set_interval(0.1)
     time.sleep(5)

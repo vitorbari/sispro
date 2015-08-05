@@ -4,7 +4,7 @@ SISPRO is a Raspberry Pi / Python based GPS & video tracking system.
 
 ## Introduction
 
-SISPRO is a tracking system for Raspberry PI which uses a [Raspberry Camera Module](https://www.raspberrypi.org/products/camera-module/) and a [Adafruit Ultimate GPS Breakout](http://www.adafruit.com/product/746). It records videos over multiple files and writes .srt (subtitle) files with GPS data (Lat / Long; Km/h; etc). The system will also write a log file with lots of information.
+SISPRO is a tracking system for Raspberry PI which uses a [Raspberry Camera Module](https://www.raspberrypi.org/products/camera-module/) and a [Adafruit Ultimate GPS Breakout](http://www.adafruit.com/product/746). It records videos over multiple files and writes .srt (subtitle) files with GPS data (Lat / Long; Km/h; etc). The system also writes a log file with lots of information.
 
 It has 2 operating modes:
 

@@ -16,8 +16,6 @@ import picamera
 # Global Variable
 # ==================================
 srt = {"file": ""}
-gyro = {"file": ""}
-
 
 class RecordVideo(threading.Thread):
     def __init__(self, path):
@@ -35,7 +33,6 @@ class RecordVideo(threading.Thread):
 
     def run(self):
         global srt
-        global gyro
 
         with picamera.PiCamera() as self.camera:
 
@@ -61,7 +58,6 @@ class RecordVideo(threading.Thread):
 
                 video_file = self.out_path + now + '.h264'
                 srt["file"] = self.out_path + now + '.srt'
-                gyro["file"] = self.out_path + now + '_.gyro'
 
                 if self.video_started is False:
                     self.camera.start_recording(video_file)

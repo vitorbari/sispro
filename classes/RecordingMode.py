@@ -13,7 +13,6 @@ import time
 
 from classes.RecordVideo import RecordVideo
 from classes.UpdateGps import UpdateGps
-from classes.UpdateGyro import UpdateGyro
 from classes.WriteLog import WriteLog
 from classes.WriteSrt import WriteSrt
 
@@ -30,7 +29,6 @@ class RecordingMode(threading.Thread):
 
         self.threadRecordVideo = None
         self.threadUpdateGps = None
-        self.threadUpdateGyro = None
         self.threadWriteLog = None
         self.threadWriteSrt = None
 
@@ -52,10 +50,6 @@ class RecordingMode(threading.Thread):
         self.threadUpdateGps.resume()
         self.threadUpdateGps.start()
 
-        self.threadUpdateGyro = UpdateGyro()
-        self.threadUpdateGyro.resume()
-        self.threadUpdateGyro.start()
-
         self.threadRecordVideo = RecordVideo(self.out_path)
         self.threadRecordVideo.resume()
         self.threadRecordVideo.start()
@@ -75,7 +69,6 @@ class RecordingMode(threading.Thread):
             self.threadRecordVideo.resume()
             self.threadWriteLog.resume()
             self.threadWriteSrt.resume()
-            self.threadUpdateGyro.resume()
             self.threadUpdateGps.resume()
 
         with self.state:
@@ -94,7 +87,6 @@ class RecordingMode(threading.Thread):
             self.threadRecordVideo.pause()
             self.threadWriteLog.pause()
             self.threadWriteSrt.pause()
-            self.threadUpdateGyro.pause()
             self.threadUpdateGps.pause()
             self.threadCleanFiles.pause()
 

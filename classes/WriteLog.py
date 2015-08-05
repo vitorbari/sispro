@@ -17,7 +17,6 @@ import time
 import csv
 
 from classes.UpdateGps import gps_data
-from classes.UpdateGyro import gyro_data
 
 # ==================================
 # Global Variable
@@ -38,7 +37,6 @@ class WriteLog(threading.Thread):
     def run(self):
         global file_log
         global gps_data
-        global gyro_data
 
         now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
         file_name = self.out_path + now + '_log.csv'
@@ -64,15 +62,13 @@ class WriteLog(threading.Thread):
 
                 if gps_data["status"] > 1:
                     csvwriter.writerow(
-                        [datetime.datetime.now().strftime('%d/%m/%y %H:%M:%S'), "{0:.2f}".format(gyro_data["x"]),
-                         "{0:.2f}".format(gyro_data["y"]), "{0:.2f}".format(gyro_data["z"]),
+                        [datetime.datetime.now().strftime('%d/%m/%y %H:%M:%S'),
                          "{0:.7f}".format(gps_data["lat"]), "{0:.7f}".format(gps_data["long"]), gps_data["speed"],
                          gps_data["alt"], gps_data["climb"], gps_data["satellites"],
                          self.get_gmaps_url(gps_data["lat"], gps_data["long"])])
                 else:
                     csvwriter.writerow(
-                        [datetime.datetime.now().strftime('%d/%m/%y %H:%M:%S'), "{0:.2f}".format(gyro_data["x"]),
-                         "{0:.2f}".format(gyro_data["y"]), "{0:.2f}".format(gyro_data["z"]), "", "", "", "", "", ""])
+                        [datetime.datetime.now().strftime('%d/%m/%y %H:%M:%S')])
 
                 time.sleep(1)
 
