@@ -133,6 +133,12 @@ $ wget https://github.com/vitorbari/sispro.git
 * Add Inertial sensors
 * Add ODB2 Connectivity
 
+## References
+
+* [http://picamera.readthedocs.org/en/release-1.8/recipes1.html#recording-over-multiple-files](http://picamera.readthedocs.org/en/release-1.8/recipes1.html#recording-over-multiple-files)
+* [https://learn.adafruit.com/adafruit-ultimate-gps-on-the-raspberry-pi?view=all](https://learn.adafruit.com/adafruit-ultimate-gps-on-the-raspberry-pi?view=all)
+* [https://embeddedcode.wordpress.com/2013/10/18/adding-a-shutdown-button-to-the-raspberry-pi/](https://embeddedcode.wordpress.com/2013/10/18/adding-a-shutdown-button-to-the-raspberry-pi/)
+
 ## Contributing
 
 If you would like help implementing a new feature or fix a bug, fork the repo and submit a pull request!
