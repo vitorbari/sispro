@@ -68,7 +68,7 @@ Assuming you have Raspbian installed and internet connection:
  $ sudo apt-get install python-picamera python3-picamera python-rpi.gpio gpsd gpsd-clients python-gps python-smbus
  ```
 3. GPS Setup
-  1. Edit /boot/cmdline.txt - When the Pi is booting all the debug messages are sent to the serial port. This can be useful for some purposes but we need to turn this off to free the port for our own use.
+  Edit /boot/cmdline.txt - When the Pi is booting all the debug messages are sent to the serial port. This can be useful for some purposes but we need to turn this off to free the port for our own use.
    ```bash
    $ sudo nano /boot/cmdline.txt
    ```
@@ -76,7 +76,8 @@ Assuming you have Raspbian installed and internet connection:
    `dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait`  
    to:  
    `dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait` 
-  2. Edit /etc/inittab - To disable the login feature we can run the following command to edit the inittab system file
+  
+  Edit /etc/inittab - To disable the login feature we can run the following command to edit the inittab system file
    ```bash
    $ sudo nano /etc/inittab
    ```
