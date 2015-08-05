@@ -41,14 +41,17 @@ Assuming you have Raspbian installed and internet connection:
 ### Pre Installation Steps
 
 1. Firmware Update
+ 
  ```
  $ sudo rpi-update
  ```
 2. Update the list of available packages and their versions
+ 
  ```
  $ sudo apt-get update
  ```
 3. Install newer versions of the packages you have
+ 
  ```
  $ sudo apt-get upgrade
  ```
