@@ -58,13 +58,15 @@ Assuming you have Raspbian installed and internet connection:
 
 ### Installation Steps
 1. Enable Camera Module
-```
-$ sudo raspi-config
-```
+
+ ```
+ $ sudo raspi-config
+ ```
 2. Install dependencies
-```
-$ sudo apt-get install python-picamera python3-picamera python-rpi.gpio gpsd gpsd-clients python-gps python-smbus
-```
+
+ ```
+ $ sudo apt-get install python-picamera python3-picamera python-rpi.gpio gpsd gpsd-clients python-gps python-smbus
+ ```
 3. GPS Setup
   1. Edit /boot/cmdline.txt - When the Pi is booting all the debug messages are sent to the serial port. This can be useful for some purposes but we need to turn this off to free the port for our own use.
    ```
@@ -82,48 +84,48 @@ $ sudo apt-get install python-picamera python3-picamera python-rpi.gpio gpsd gps
    `T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100`  
    to:  
    `#T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100`
-5. Grab the source code
-```
-$ cd ~  
-$ wget https://github.com/vitorbari/sispro.git
-```
+4. Grab the source code
+
+ ```
+ $ cd ~  
+ $ wget https://github.com/vitorbari/sispro.git
+ ```
 
 ### Optional Post Installation Steps
 1. Camera Module Test  
-```
-$ raspistill -o image.jpg
-```
 
+ ```
+ $ raspistill -o image.jpg
+ ```
 2. GPS Module Test  
-```
-$ cgps -s
-```
 
+ ```
+ $ cgps -s
+ ```
 2. Start Sispro at boot time 
 (TODO)
-
 3. Enable Auto Login
-```
-$ sudo nano /etc/inittab
-```
 
-And change:  
-`1:2345:respawn:/sbin/getty 115200 tty1`  
-to:  
-`#1:2345:respawn:/sbin/getty 115200 tty1`
+ ```
+ $ sudo nano /etc/inittab
+ ```
 
-Under that line add:  
-`1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1`
+ And change:  
+ `1:2345:respawn:/sbin/getty 115200 tty1`  
+ to:  
+ `#1:2345:respawn:/sbin/getty 115200 tty1`
 
+ Under that line add:  
+ `1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1`
 4. Enable HDMI Hotplug  
-```
-$ sudo nano /boot/config.txt
-```
+ ```
+ $ sudo nano /boot/config.txt
+ ```
 
-And change:  
-`hdmi_force_hotplug=0`  
-to:  
-`hdmi_force_hotplug=1`
+ And change:  
+ `hdmi_force_hotplug=0`  
+ to:  
+ `hdmi_force_hotplug=1`
 
 ## Roadmap
 
