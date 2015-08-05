@@ -1,6 +1,6 @@
 # SISPRO
 
-SISPRO is a Raspberry Pi based Python based GPS & video tracking system. 
+SISPRO is a Raspberry Pi / Python based GPS & video tracking system. 
 
 ## Introduction
 
@@ -23,7 +23,7 @@ It has been only tested on a Raspberry Pi Model B running [Raspbian](https://www
 
 ## Schematics
 
-![Sispro Schematics](../schematics/sispro.schema.png?raw=true)
+![Sispro Schematics](schematics/sispro.schema.png?raw=true)
 
 ## Installation
 
