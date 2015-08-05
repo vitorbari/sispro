@@ -42,34 +42,34 @@ Assuming you have Raspbian installed and internet connection:
 
 1. Firmware Update
  
- ```
+ ```bash
  $ sudo rpi-update
  ```
 2. Update the list of available packages and their versions
  
- ```
+ ```bash
  $ sudo apt-get update
  ```
 3. Install newer versions of the packages you have
  
- ```
+ ```bash
  $ sudo apt-get upgrade
  ```
 
 ### Installation Steps
 1. Enable Camera Module
 
- ```
+ ```bash
  $ sudo raspi-config
  ```
 2. Install dependencies
 
- ```
+ ```bash
  $ sudo apt-get install python-picamera python3-picamera python-rpi.gpio gpsd gpsd-clients python-gps python-smbus
  ```
 3. GPS Setup
   1. Edit /boot/cmdline.txt - When the Pi is booting all the debug messages are sent to the serial port. This can be useful for some purposes but we need to turn this off to free the port for our own use.
-   ```
+   ```bash
    $ sudo nano /boot/cmdline.txt
    ```
    And change:  
@@ -77,7 +77,7 @@ Assuming you have Raspbian installed and internet connection:
    to:  
    `dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait` 
   2. Edit /etc/inittab - To disable the login feature we can run the following command to edit the inittab system file
-   ```
+   ```bash
    $ sudo nano /etc/inittab
    ```
    And change:  
@@ -86,7 +86,7 @@ Assuming you have Raspbian installed and internet connection:
    `#T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100`
 4. Grab the source code
 
- ```
+ ```bash
  $ cd ~  
  $ wget https://github.com/vitorbari/sispro.git
  ```
@@ -94,19 +94,19 @@ Assuming you have Raspbian installed and internet connection:
 ### Optional Post Installation Steps
 1. Camera Module Test  
 
- ```
+ ```bash
  $ raspistill -o image.jpg
  ```
 2. GPS Module Test  
 
- ```
+ ```bash
  $ cgps -s
  ```
 2. Start Sispro at boot time 
 (TODO)
 3. Enable Auto Login
 
- ```
+ ```bash
  $ sudo nano /etc/inittab
  ```
 
@@ -118,7 +118,7 @@ Assuming you have Raspbian installed and internet connection:
  Under that line add:  
  `1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1`
 4. Enable HDMI Hotplug  
- ```
+ ```bash
  $ sudo nano /boot/config.txt
  ```
 
